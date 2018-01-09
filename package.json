@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/avicoder/bb-hunter/issues"
   },
-  "homepage": "https://github.com/avicoder/bb-hunter#readme"
+  "homepage": "https://github.com/avicoder/bb-hunter#readme",
+  "dependencies": {
+    "unique-random-array": "^1.0.0"
+  }
 }

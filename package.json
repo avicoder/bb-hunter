@@ -4,7 +4,9 @@
   "description": "Gives random bug bounty hunter details",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha"
+    "lint": "eslint . ",
+    "test": "nyc mocha",
+    "watch:test": "mocha --watch"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,28 @@
   },
   "homepage": "https://github.com/avicoder/bb-hunter#readme",
   "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.1.0",
     "unique-random-array": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-kentcdodds": "^13.0.1",
+    "mocha": "3.0.0",
+    "nyc": "^7.1.0"
+  },
+  "nyc":{
+    "check-coverage":100,
+    "branches":100,
+    "functions":100,
+    "lines":100,
+    "statements":100,
+    "reporter":[
+      "text",
+      "lcov"
+    ],
+    "include":[
+      "src"
+    ]
   }
 }

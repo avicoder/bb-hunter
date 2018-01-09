@@ -1,0 +1,24 @@
+{
+  "name": "bb-hunter",
+  "version": "1.0.0",
+  "description": "Gives random bug bounty hunter details",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avicoder/bb-hunter.git"
+  },
+  "keywords": [
+    "bug",
+    "bounty",
+    "hunters"
+  ],
+  "author": "avicoder <avicoder@outlook.com> (https://avicoder.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/avicoder/bb-hunter/issues"
+  },
+  "homepage": "https://github.com/avicoder/bb-hunter#readme"
+}

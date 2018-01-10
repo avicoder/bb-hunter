@@ -4,9 +4,11 @@
   "description": "Gives random bug bounty hunter details",
   "main": "src/index.js",
   "scripts": {
+    "build": "babel --out-dir dist src",
     "lint": "eslint . ",
     "test": "nyc mocha",
-    "watch:test": "mocha --watch"
+    "watch:test": "mocha --watch",
+    "validate": "npm-run-all --parallel lint test"
   },
   "repository": {
     "type": "git",
@@ -29,23 +31,29 @@
     "unique-random-array": "^1.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.9.0",
     "eslint": "^4.15.0",
-    "eslint-config-kentcdodds": "^13.0.1",
+    "eslint-config-kentcdodds": "^9.0.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "ghooks": "^2.0.2",
     "mocha": "3.0.0",
+    "npm-run-all": "^2.3.0",
     "nyc": "^7.1.0"
   },
-  "nyc":{
-    "check-coverage":100,
-    "branches":100,
-    "functions":100,
-    "lines":100,
-    "statements":100,
-    "reporter":[
-      "text",
-      "lcov"
-    ],
-    "include":[
+  "nyc": {
+    "check-coverage": 100,
+    "branches": 100,
+    "functions": 100,
+    "lines": 100,
+    "statements": 100,
+    "include": [
       "src"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "es2015"
     ]
   }
 }

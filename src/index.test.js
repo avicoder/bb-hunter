@@ -1,6 +1,6 @@
 'use strict';
 
-var expect =  require('chai').expect;
+var expect = require('chai').expect;
 var bbHunter = require('.');
 
 describe('bb-hunter',function() {
@@ -17,10 +17,10 @@ function isArrayOfStrings(array){
   return array.every(function(item){
     return typeof item === 'string';
   })
-};
+}
 
 function isInList(array){
   return function(item){
     return array.includes(item)
   }
-};
+}

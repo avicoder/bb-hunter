@@ -1,7 +1,5 @@
-'use strict'
-
-var uniqueRandomArray = require('unique-random-array');
-var bbHunter = require('./bb-hunter.json');
+const uniqueRandomArray = require('unique-random-array');
+const bbHunter = require('./bb-hunter.json');
 
 module.exports = {
 

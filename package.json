@@ -2,13 +2,14 @@
   "name": "bb-hunter",
   "version": "1.0.0",
   "description": "Gives random bug bounty hunter details",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "babel --out-dir dist src",
-    "lint": "eslint . ",
-    "test": "nyc mocha",
+    "prebuild": "rimraf dist",
+    "build": "babel --copy-files --out-dir dist --ignore *.test.js src",
+    "test": "cross-env NODE_ENV=test nyc mocha",
     "watch:test": "mocha --watch",
-    "validate": "npm-run-all --parallel lint test"
+    "lint": "eslint .",
+    "validate": "npm-run-all --parallel test lint build"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,9 @@
     "bounty",
     "hunters"
   ],
+  "files": [
+    "dist"
+  ],
   "author": "avicoder <avicoder@outlook.com> (https://avicoder.me/)",
   "license": "MIT",
   "bugs": {
@@ -26,34 +30,54 @@
   },
   "homepage": "https://github.com/avicoder/bb-hunter#readme",
   "dependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^4.1.0",
-    "unique-random-array": "^1.0.0"
+    "unique-random-array": "1.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.9.0",
-    "eslint": "^4.15.0",
+    "babel-cli": "^6.11.4",
+    "babel-plugin-istanbul": "^1.0.3",
+    "babel-preset-es2015": "6.9.0",
+    "babel-register": "6.11.6",
+    "chai": "3.5.0",
+    "cross-env": "^2.0.0",
+    "eslint": "^3.2.0",
     "eslint-config-kentcdodds": "^9.0.0",
-    "eslint-plugin-mocha": "^4.11.0",
-    "ghooks": "^2.0.2",
+    "ghooks": "1.3.2",
     "mocha": "3.0.0",
-    "npm-run-all": "^2.3.0",
-    "nyc": "^7.1.0"
+    "npm-run-all": "2.3.0",
+    "nyc": "7.1.0",
+    "rimraf": "^2.5.4"
   },
   "nyc": {
-    "check-coverage": 100,
+    "all": true,
+    "check-coverage": true,
     "branches": 100,
-    "functions": 100,
+    "function": 100,
     "lines": 100,
     "statements": 100,
     "include": [
       "src"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "require": [
+      "babel-register"
     ]
   },
   "babel": {
     "presets": [
       "es2015"
-    ]
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run validate"
+    }
   }
 }

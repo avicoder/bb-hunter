@@ -1,7 +1,5 @@
-'use strict';
-
-var expect = require('chai').expect;
-var bbHunter = require('.');
+const expect = require('chai').expect;
+const bbHunter = require('.');
 
 describe('bb-hunter',function() {
     it('should have a list of all available names as strings', function(){

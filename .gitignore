@@ -57,6 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
-package-lock.json
-nyc_output/
-coverage/
+node_modules
+coverage
+dist
+.nyc_output

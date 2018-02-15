@@ -20,7 +20,7 @@ npm install bb-hunter
 
 ## The Library
 
-###import
+### import
 
 ```
 const bb-hunter = require('bb-hunter');

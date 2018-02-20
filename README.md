@@ -48,3 +48,5 @@ Return an random of name of bug bounty hunter
 
 This library was built by following [a workshop](http://kcd.im/fem-oss) for
 [Frontend Masters](https://frontendmasters.com).
+
+Thanks
